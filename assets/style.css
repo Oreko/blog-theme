@@ -9,27 +9,27 @@
     --main-link-hover-color: #B9E2E8;
     --main-table-border-color: #C9D1D9;
     --blog-tree-color: #C0E5EB;
-	--blog-mark-color: #BFB0CE;
+    --blog-mark-color: #BFB0CE;
 }
 
 @media screen and (max-width: 500px) {
     html {
-	font-size: 90%;
+    font-size: 90%;
     }
     .hidesmallscreen {
-	display: none;
+    display: none;
     }
 }
 
 @media screen and (min-width: 1024px) {
     html {
-	font-size: 110%;
+    font-size: 110%;
     }
 }
 
 @media screen and (min-width: 2048px) {
     html {
-	font-size: 120%;
+    font-size: 120%;
     }
 }
 
@@ -57,6 +57,7 @@ main {
 footer {
     text-align: center;
     width: 100%;
+    padding-bottom: 1.5rem;
 }
 
 img,
