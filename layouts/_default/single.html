@@ -12,7 +12,7 @@
 {{- with (.GetTerms "categories") }}
 <ul class="post-categories">
   {{- range . }}
-  <li><a href="{{ .Permalink }}" rel="noreferrer">{{ .LinkTitle }}</a></li>
+  <li><a href="{{ .RelPermalink }}" rel="noreferrer">{{ .LinkTitle }}</a></li>
   {{- end }}
 </ul>
 {{- end }}
@@ -24,7 +24,7 @@
 {{- with (.GetTerms "tags") }}
 <ul class="post-tags">
   {{- range . }}
-  <li><a href="{{ .Permalink }}" rel="noreferrer">#{{ .LinkTitle }}</a></li>
+  <li><a href="{{ .RelPermalink }}" rel="noreferrer">#{{ .LinkTitle }}</a></li>
   {{- end }}
 </ul>
 {{- end }}

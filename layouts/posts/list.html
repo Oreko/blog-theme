@@ -21,7 +21,7 @@
       {{ if .Params.link }}
         <a href="{{ .Params.link }}" rel="noreferrer" target="_blank">{{ .Title }}</a>
       {{ else }}
-        <a href="{{ .Permalink }}" rel="noreferrer">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}" rel="noreferrer">{{ .Title }}</a>
       {{ end }}
         <p>	
           {{ .Summary }}

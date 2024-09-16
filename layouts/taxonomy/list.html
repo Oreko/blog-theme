@@ -22,7 +22,7 @@
       {{ if .Params.link -}}
         <a href="{{ .Params.link }}" rel="noreferrer" target="_blank">{{ .Title }}</a>{{ if not (eq $count 0) }} ({{ $count }}) {{ end }}
       {{- else -}}
-        <a href="{{ .Permalink }}" rel="noreferrer">{{ .Title }}</a>{{ if not (eq $count 0) }} ({{ $count }}) {{ end }}
+        <a href="{{ .RelPermalink }}" rel="noreferrer">{{ .Title }}</a>{{ if not (eq $count 0) }} ({{ $count }}) {{ end }}
       {{- end }}
       </div>	
     </li>
