@@ -1,0 +1,45 @@
+<ul class="tree">
+  <li>
+    <a href="/" rel="noreferrer">Index</a> (<a href="/index.xml" rel="noreferrer">RSS</a>)
+    <ul>
+      {{ range .Site.Sections }}
+      <li>
+	<a href="{{ .RelPermalink }}" rel="noreferrer">{{ .LinkTitle }}</a>
+	{{- with .OutputFormats.Get "rss" }}
+	 (<a href="{{ .RelPermalink }}" rel="noreferrer">RSS</a>)
+	{{- end }}
+	{{ range .Pages }}
+	<ul>
+	  <li><a href="{{ .RelPermalink }}" rel="noreferrer">{{ .LinkTitle }}</a></li>
+	  {{- with .OutputFormats.Get "rss" }}
+	   (<a href="{{ .RelPermalink }}" rel="noreferrer">RSS</a>)
+	  {{- end }}
+	</ul>
+	{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    <ul>
+      {{ range $taxonomy, $terms := site.Taxonomies }}
+      <li>
+	{{ with site.GetPage $taxonomy }}
+        <a href="{{ .RelPermalink }}" rel="noreferrer">{{ .LinkTitle }}</a>
+	{{- with .OutputFormats.Get "rss" }}
+	 (<a href="{{ .RelPermalink }}" rel="noreferrer">RSS</a>)
+	{{- end }}
+	{{ end }}
+	<ul>
+          {{ range $terms }}
+          <li>
+            <a href="{{ .Page.RelPermalink }}" rel="noreferrer">{{ .Page.LinkTitle }}</a>
+	    {{- with .Page.OutputFormats.Get "rss" }}
+	     (<a href="{{ .RelPermalink }}" rel="noreferrer">RSS</a>)
+	    {{- end }}
+          </li>
+          {{ end }}
+	</ul>
+      </li>
+      {{ end }}
+    </ul>
+  </li>
+</ul>

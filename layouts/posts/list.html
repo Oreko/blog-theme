@@ -1,0 +1,43 @@
+{{ define "main" }}
+<content>
+  <h3>{{ .Title }}</h3>
+  <ul class="blog-list">
+    {{ range .Pages }}
+    <li>
+      <span class="date">
+      {{- if .Date }}
+        <i>
+          <time datetime='{{ .Date.Format "2006-01-02" }}'>
+            {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+          </time>
+        </i>
+	{{- else }}
+	<i>
+	  No Date
+	</i>
+      {{- end -}}
+      </span>
+      <div class="blog-entry">
+      {{ if .Params.link }}
+        <a href="{{ .Params.link }}" rel="noreferrer" target="_blank">{{ .Title }}</a>
+      {{ else }}
+        <a href="{{ .Permalink }}" rel="noreferrer">{{ .Title }}</a>
+      {{ end }}
+        <p>	
+          {{ .Summary }}
+        </p>
+      {{ if .Truncated }}
+        <div>
+          <a href="{{ .RelPermalink }}" rel="noreferrer">Read More…</a>
+        </div>
+      {{ end }}
+      </div>
+    </li>
+    {{ else }}
+    <li>
+      no posts
+    </li>
+    {{ end }}
+  </ul>
+</content>
+{{ end }}

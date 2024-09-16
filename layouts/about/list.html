@@ -1,0 +1,20 @@
+{{ define "main" }}
+<content>
+  <h3>{{ .Title }}</h3>
+  <ul class="blog-list">
+    {{ range .Pages }}
+    <li>
+      {{ if .Params.link }}
+        <a href="{{ .Params.link }}" rel="noreferrer" target="_blank">{{ .Title }}</a>
+      {{ else }}
+        <a href="{{ .Permalink }}" rel="noreferrer">{{ .Title }}</a>
+      {{ end }}
+    </li>
+    {{ else }}
+    <li>
+      no-posts
+    </li>
+    {{ end }}
+  </ul>
+</content>
+{{ end }}

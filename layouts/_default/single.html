@@ -1,0 +1,31 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{- if .Date }}
+<span class="date">
+  <i>
+    <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
+      {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+    </time>
+  </i>
+</span>
+{{- end }}
+{{- with (.GetTerms "categories") }}
+<ul class="post-categories">
+  {{- range . }}
+  <li><a href="{{ .Permalink }}" rel="noreferrer">{{ .LinkTitle }}</a></li>
+  {{- end }}
+</ul>
+{{- end }}
+<content>
+  <article>
+    {{ .Content }}
+  </article>  
+</content>
+{{- with (.GetTerms "tags") }}
+<ul class="post-tags">
+  {{- range . }}
+  <li><a href="{{ .Permalink }}" rel="noreferrer">#{{ .LinkTitle }}</a></li>
+  {{- end }}
+</ul>
+{{- end }}
+{{ end }}

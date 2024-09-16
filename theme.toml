@@ -1,0 +1,22 @@
+name = "Naval Blog"
+license = "MIT"
+licenselink = "https://github.com/Oreko/blog-theme/blob/master/LICENSE"
+description = "A simple hugo theme for blogging"
+
+# The home page of the theme, where the source can be found.
+homepage = "https://github.com/Oreko/blog-theme"
+
+# If the theme has a single author
+[author]
+    name = "Oreko"
+
+# If porting an existing theme
+[original]
+    name = "Caio Lente"
+    homepage = "https://lente.dev"
+    repo = "https://github.com/clente/hugo-bearcub"
+
+# Hugo versions the theme supports
+[module]
+  [module.hugoVersion]
+    min = "0.90"

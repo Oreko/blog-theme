@@ -1,0 +1,7 @@
+{{- with .Site.Menus.main }}
+<ul class="nav-list">
+{{- range .ByWeight -}}
+<li><a href="{{ relLangURL .URL }}" rel="noreferrer">{{ .Name }}</a></li>
+{{- end -}}
+</ul>
+{{- end }}

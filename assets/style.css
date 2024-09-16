@@ -1,0 +1,237 @@
+:root {
+    --main-bg-gradient1: #1D8AA5;
+    --main-bg-gradient2: #1D2D3A;
+    --main-header-color: #1D9DC0;
+    --main-title-color: #A5E1E0;
+    --main-text-color: #E0F4F2;
+    --main-link-unvisited-color: #1DA5D0;
+    --main-link-visited-color: #A5A7A7;
+    --main-link-hover-color: #B9E2E8;
+    --main-table-border-color: #C9D1D9;
+    --blog-tree-color: #C0E5EB;
+	--blog-mark-color: #BFB0CE;
+}
+
+@media screen and (max-width: 500px) {
+    html {
+	font-size: 90%;
+    }
+    .hidesmallscreen {
+	display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    html {
+	font-size: 110%;
+    }
+}
+
+@media screen and (min-width: 2048px) {
+    html {
+	font-size: 120%;
+    }
+}
+
+body {
+    background-image: linear-gradient(var(--main-bg-gradient1), var(--main-bg-gradient2));
+    background-color: var(--main-bg-gradient2);
+    background-size: 100% 700px;
+    background-repeat: repeat-x;
+    color: var(--main-text-color);
+    font-family: Verdana, sans-serif;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 40rem;
+    min-height: 100vh;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+main {
+    padding-bottom: 2.5rem;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+}
+
+img,
+picture,
+video {
+    height: auto;
+    max-width: 100%;
+}
+
+img {
+    object-fit: contain;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--main-header-color);
+}
+
+h1 {
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0;
+}
+
+.title {
+    text-decoration: none;
+    border: 0;
+}
+
+.title h1 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--main-title-color);
+}
+
+h2 {
+    line-height: 1.2;
+    margin-top: 1.4rem;
+}
+
+hr {
+    border-style: dotted none none;
+    border-width: 2px;
+}
+
+a {
+    color: var(--main-link-unvisited-color);
+}
+
+a.external {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--main-link-unvisited-color);
+}
+
+nav a {
+    margin-right: 10px;
+}
+
+a:not(nav a):visited {
+    color: var(--main-link-visited-color);
+}
+
+a:not(nav a):visited.external {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--main-link-unvisited-color);
+}
+
+a:not(nav a):hover {
+    color: var(--main-link-hover-color);
+}
+
+mark {
+    background-color: var(--blog-mark-color);
+}
+
+ul.nav-list,
+ul.post-tags,
+ul.post-categories {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+table,
+th,
+td {
+    border: none;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+code {
+    padding: 2px 5px;
+}
+
+pre code {
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+blockquote {
+    border-left: 1px solid #999;
+    color: #ccc;
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* blog list */
+ul.blog-list {
+    list-style-type: none;
+    padding: unset;
+}
+
+ul.blog-list li {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+ul.blog-list span.date {
+    flex: 0 0 130px;
+    padding-right: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  ul.blog-list span.date {
+      flex: 0 0 100px;
+  }
+}
+
+/* Tree View */
+.tree {
+    --spacing : 1.5rem;
+    --radius  : 10px;
+}
+
+.tree li{
+    display      : block;
+    position     : relative;
+    padding-left : calc(2 * var(--spacing) - var(--radius));
+    padding-top : 2px;
+}
+
+.tree ul{
+    margin-left  : calc(var(--radius) - var(--spacing));
+    padding-left : 0;
+}
+
+.tree ul li{
+    border-left : 2px solid var(--blog-tree-color);
+}
+
+.tree ul li:last-child{
+    border-color : transparent;
+}
+
+.tree ul li::before{
+    content      : '';
+    display      : block;
+    position     : absolute;
+    top          : calc(var(--spacing) / -2);
+    left         : -2px;
+    width        : calc(var(--spacing) + 2px);
+    height       : calc(var(--spacing) + 1px);
+    border       : solid var(--blog-tree-color);
+    border-width : 0 0 2px 2px;
+}

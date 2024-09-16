@@ -1,0 +1,15 @@
+<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" >
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+{{- partial "head/favicon.html" . -}}
+<title>{{- block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{- end }}</title>
+<meta name="referrer" content="no-referrer" >
+<meta name="title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}" >
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" >
+<meta name="keywords" content="{{ if .IsPage}}{{ range $index, $tag := .Params.tags }}{{ $tag }},{{ end }}{{ else }}{{ range $plural, $terms := .Site.Taxonomies }}{{ range $term, $val := $terms }}{{ printf "%s," $term }}{{ end }}{{ end }}{{ end }}" >
+{{ $style := resources.Get "style.css" | minify }}
+<link href="{{ $style.RelPermalink }}" rel="stylesheet" >
+
+{{ with .OutputFormats.Get "rss" -}}
+{{ printf `<link rel="%s" type="%s" href="%s" title="%s" >` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
