@@ -1,1 +1,1 @@
-<small>Test text goes here for footer</small>
+<small>{{ with $.Site.Params.footer_content }}{{.}}{{ else }}Don't forget to set the footer value in your config!{{ end }}</small>
