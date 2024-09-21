@@ -39,7 +39,7 @@ body {
     background-size: 100% 700px;
     background-repeat: repeat-x;
     color: var(--main-text-color);
-    font-family: Verdana, sans-serif;
+    font-family: sans-serif;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 40rem;
